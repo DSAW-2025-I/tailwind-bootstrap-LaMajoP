@@ -1,32 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Design with Tailwind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Tailwind | Stats preview card component</title>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: hsl(233, 47%, 7%);
+            color: white;
+        }
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+        .image-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: hsl(277, 64%, 61%);
+            mix-blend-mode: multiply;
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-4xl bg-[hsl(244,38%,16%)] rounded-lg overflow-hidden flex flex-col md:flex-row-reverse">
+            <!-- Imagen -->
+            <div class="image-container md:w-1/2 relative">
+                <img src="images/image-header-desktop.jpg" alt="image of people" class="w-full h-full object-cover">
+            </div>
 
-  Get insights that help your business grow.
-
-  Discover the benefits of data analytics and make better decisions regarding revenue, customer 
-  experience, and overall efficiency.
-
-  10k+ companies
-  314 templates
-  12m+ queries
-
-  <div class="attribution">
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+            <!-- Texto -->
+            <div class="md:w-1/2 p-10 flex flex-col justify-center text-center md:text-left">
+                <h4 class="text-2xl md:text-3xl font-bold mb-6">
+                    Get <span class="text-[hsl(277,64%,61%)]">insights</span> that help your business grow.
+                </h4>
+                <p class="text-[hsl(0,0%,80%)] mb-8">
+                    Discover the benefits of data analytics and make better decisions regarding revenue, 
+                    customer experience, and overall efficiency.
+                </p>
+                <div class="stats flex flex-col md:flex-row justify-between space-y-4 md:space-y-0">
+                    <div class="stat">
+                        <h5 class="text-2xl font-bold">10k+</h5>
+                        <p class="text-sm text-[hsl(0,0%,80%)]">COMPANIES</p>
+                    </div>
+                    <div class="stat">
+                        <h5 class="text-2xl font-bold">314</h5>
+                        <p class="text-sm text-[hsl(0,0%,80%)]">TEMPLATES</p>
+                    </div>
+                    <div class="stat">
+                        <h5 class="text-2xl font-bold">12M+</h5>
+                        <p class="text-sm text-[hsl(0,0%,80%)]">QUERIES</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
